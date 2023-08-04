@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block style %}
+  <link rel="stylesheet" href="../static/css/cart.css">
+{% endblock %}
+
+{% block title %}Cart{% endblock %}
+
+{% block body %}
+      <table>
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Remove</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in range((session["cart"])|length) %}
+            <tr>
+              <td> {{items[i]["name"]}} </td>
+              <td> {{items[i]["price"]}} &dollar; </td>
+              <td>
+                <form action="removeProduct">
+                  <input type="hidden" name="remove_product" value="{{i}}">
+                  <button type="submit">Remove</button>
+                </form>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="2">{{total_price}} &dollar;</td>
+            <td>
+              <form action="/buy">
+                <button type="submit">Checkout</button>
+              </form>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+
+{% endblock %}

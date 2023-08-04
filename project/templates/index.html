@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block style %}
+  <link rel="stylesheet" href="../static/css/home.css">
+{% endblock %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+      {% for product in products %}
+        <section>
+          <img src="../static/images/{{product.name}}.jpg">
+          <h5>{{product.name}}</h5>
+          <h5>{{product.price}} &dollar;</h5>
+          <form action="/add_to_cart" method="post">
+            <input type="hidden" name="product" value="{{product.id}}">
+            <button type="submit">Add to cart</button>
+          </form>
+        </section>
+      {% endfor %}
+{% endblock %}

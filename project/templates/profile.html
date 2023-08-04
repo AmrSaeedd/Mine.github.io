@@ -1,0 +1,137 @@
+{% extends "layout.html" %}
+
+{% block style %}
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link href="../static/css/profile.css" rel="stylesheet">
+{% endblock %}
+
+{% block title %}Profile{% endblock %}
+
+{% block body %}
+      <!-- ----------- change user name ----------- -->
+      <section class="username">
+        <form action="/changeUserName" method="post">
+          <div class="n-user">
+            <input
+              type="text"
+              placeholder="New Username"
+              disabled
+              name="new_user_name"
+              id="name"
+            />
+          </div>
+          <button type="submit" id="btn_name" disabled>Change Username</button>
+          <i class="bx bx-pencil" id="user_pen"></i>
+        </form>
+      </section>
+
+      <!-- ----------- change password ----------- -->
+      <section class="password">
+        <form action="/changePassword" method="post">
+          <div class="o-pass">
+            <input
+              type="hidden"
+              placeholder="Old Password"
+              name="old_password"
+              id="old"
+            />
+          </div>
+          <div class="n-pass">
+            <input
+              type="password"
+              placeholder="New Password"
+              disabled
+              name="new_password"
+              id="password"
+            />
+          </div>
+          <div class="c-pass">
+            <input
+              type="hidden"
+              placeholder="Confirm New Password"
+              name="confirmation_new_password"
+              id="confirm"
+            />
+          </div>
+          <button type="submit" id="btn_password" disabled>
+            Change Password
+          </button>
+          <i class="bx bx-pencil" id="password_pen"></i>
+        </form>
+      </section>
+
+      <!-- ----------- add cash ----------- -->
+      <section class="cash">
+        <form action="/addCash"  method="post">
+          <div class="n-cash">
+            <input
+              type="number"
+              placeholder="Cash"
+              disabled
+              name="cash"
+              min="1"
+              id="cash"
+            />
+          </div>
+          <button type="submit" id="btn_cash" disabled>Add Cash</button>
+          <i class="bx bx-pencil" id="cash_pen"></i>
+        </form>
+      </section>
+{% endblock %}
+{% block script %}
+    <script>
+      let name = document.getElementById("name");
+      let name_btn = document.getElementById("btn_name");
+      let name_enable = document.getElementById("user_pen");
+
+      let password = document.getElementById("password");
+      let password_btn = document.getElementById("btn_password");
+      let old = document.getElementById("old");
+      let confirm = document.getElementById("confirm");
+      let password_enable = document.getElementById("password_pen");
+
+      let cash = document.getElementById("cash");
+      let cash_btn = document.getElementById("btn_cash");
+      let cash_enable = document.getElementById("cash_pen");
+
+      name_enable.addEventListener("click", function () {
+        if (name.disabled) {
+          name.disabled = false;
+          name_btn.disabled = false;
+        } else {
+          name.disabled = true;
+          name_btn.disabled = true;
+          name.value = "";
+        }
+      });
+
+      password_enable.addEventListener("click", function () {
+        if (password.disabled) {
+          password.disabled = false;
+          password_btn.disabled = false;
+          old.setAttribute("type", "password");
+          confirm.setAttribute("type", "password");
+        } else {
+          password.disabled = true;
+          password_btn.disabled = true;
+          old.setAttribute("type", "hidden");
+          confirm.setAttribute("type", "hidden");
+          password.value = "";
+        }
+      });
+
+      cash_enable.addEventListener("click", function () {
+        if (cash.disabled) {
+          cash.disabled = false;
+          cash_btn.disabled = false;
+        } else {
+          cash.disabled = true;
+          cash_btn.disabled = true;
+          cash.value = "";
+        }
+      });
+    </script>
+{% endblock %}
