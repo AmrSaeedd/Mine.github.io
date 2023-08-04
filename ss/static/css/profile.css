@@ -1,0 +1,85 @@
+main {
+  height: 83%;
+}
+h3 {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 5px;
+}
+h3 span {
+  display: inline-block;
+}
+
+h3 span:first-child {
+  color: red;
+}
+h3 span:last-child {
+  color: green;
+}
+
+.main {
+  display: grid;
+  height: 97%;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 20px;
+}
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fdfbfb52;
+}
+section div {
+  margin-bottom: 10px;
+}
+section.username,
+section.cash {
+  display: flex;
+  align-items: center;
+}
+
+section.password {
+  grid-column: 2;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+section form input {
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+section form button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  width: 215px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ff5a5f;
+  color: #fff;
+  cursor: pointer;
+}
+
+i {
+  margin-left: 10px;
+  font-size: 20px;
+  color: #ff5a5f;
+  cursor: pointer;
+
+}
+
+section form input:disabled,
+section form button:disabled {
+  background-color: #eee;
+  color: #0000006b;
+  cursor: not-allowed;
+}

@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block style %}
+  <link rel="stylesheet" href="../static/css/history.css">
+{% endblock %}
+
+{% block title %}History{% endblock %}
+
+{% block body %}
+      <table>
+        <thead>
+          <tr>
+            <th>Order Id</th>
+            <th>Total Price</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for transaction in transaction_info %}
+            <tr>
+              <td>{{transaction.order_id}}</td>
+              <td>{{transaction.total_price}} &dollar;</td>
+              <td>{{transaction.timestamp}}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+{% endblock %}

@@ -1,0 +1,88 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+main {
+  padding: 20px;
+}
+
+/* Custom Styles for Header and Footer */
+header {
+  background-color: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header .left {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+header .left a {
+  text-decoration: none;
+  color: #000;
+}
+
+header .left a .blue {
+  color: blue;
+}
+
+header .left a .red {
+  color: red;
+}
+
+header .left a .yellow {
+  color: #bfbf38;;
+}
+
+header .left a .green {
+  color: green;
+}
+
+header .center ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+header .center ul li a {
+  text-decoration: none;
+  color: #000;
+  font-size: 16px;
+}
+
+header .right ul {
+  list-style: none;
+}
+
+header .right ul li a {
+  text-decoration: none;
+  color: #000;
+  font-size: 16px;
+}
+
+footer {
+  background-color: #f7f7f7;
+  padding: 20px;
+  text-align: center;
+}
+
+footer h2 {
+  font-size: 18px;
+  color: #000;
+  margin: 0;
+}
+
+footer h2 span {
+  color: red;
+}

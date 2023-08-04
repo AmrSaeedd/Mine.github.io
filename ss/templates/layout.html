@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/css/main.css">
+    <link rel="icon" href="../static/images/icon.png">
+    {% block style %}{% endblock %}
+    <title>CS50 Store: {% block title %}{% endblock %} </title>
+  </head>
+  <body>
+    {% if session["user_id"] %}
+      <header>
+        <div class="left">
+          <a class="navbar-brand" href="/"
+            ><span class="blue">C</span><span class="red">S</span
+            ><span class="yellow">5</span><span class="green">0</span>
+            <span class="red">Store</span></a
+          >
+        </div>
+        <nav class="center">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/cart">Cart</a></li>
+            <li><a href="/history">History</a></li>
+            <li><a href="/profile">Profile</a></li>
+          </ul>
+        </nav>
+        <div class="right">
+          <ul>
+            <li><a href="/logout">Log out</a></li>
+          </ul>
+        </div>
+      </header>
+    {% endif %}
+
+    <main>
+      {% block body %}{% endblock %}
+    </main>
+
+    {% if session["user_id"] %}
+      <footer>
+        <h2>Made by Amr Saeed ❤️</h2>
+      </footer>
+    {% endif %}
+    {% block script %}{% endblock %}
+  </body>
+</html>
